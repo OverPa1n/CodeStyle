@@ -22,19 +22,19 @@ This style guide outlines the coding conventions and guidelines that we follow f
 Which style for whitespaces we should follow?
 
 ### Option 1:
-![ray-so-export (1).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%281%29.png)
-![ray-so-export (6).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%286%29.png)
-![ray-so-export (12).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%2812%29.png)
-![ray-so-export (4).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%284%29.png)
-![ray-so-export (8).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%288%29.png)
+![ray-so-export (1).png](./images/ray-so-export%20(1).png)
+![ray-so-export (6).png](./images/ray-so-export%20(6).png)
+![ray-so-export (12).png](./images/ray-so-export%20(12).png)
+![ray-so-export (4).png](./images/ray-so-export%20(4).png)
+![ray-so-export (8).png](./images/ray-so-export%20(8).png)
 
 
 ### Option 2: 
-![ray-so-export (2).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%282%29.png)
-![ray-so-export (7).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%287%29.png)
-![ray-so-export (11).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%2811%29.png)
-![ray-so-export (5).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%285%29.png)
-![ray-so-export (10).png](..%2F..%2F..%2FDownloads%2Fray-so-export%20%2810%29.png)
+![ray-so-export (2).png](./images/ray-so-export%20(2).png)
+![ray-so-export (7).png](./images/ray-so-export%20(7).png)
+![ray-so-export (11).png](./images/ray-so-export%20(11).png)
+![ray-so-export (5).png](./images/ray-so-export%20(5).png)
+![ray-so-export (10).png](./images/ray-so-export%20(10).png)
 
 ### Arrays
 
