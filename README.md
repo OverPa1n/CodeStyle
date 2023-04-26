@@ -117,10 +117,48 @@ const [value1, value2] = 'foo' === 'baz'
         : ['2', '1']
 ```
 
-
 ### Interfaces
+#### 3. Naming convention
+>3.1 Do not use "I" as a prefix for interface names.
+```typescript
+//bad
+interface ICar {}
 
-[Insert your information about Interfaces]
+//good
+interface CarInterface {}
+//or
+interface Car {}
+```
+>3.2 Use PascalCase for interface names
+```typescript
+//bad
+interface userProfileInterface {}
+
+//good
+interface UserProfileInterface {}
+```
+>3.3 Use whole words in names when possible
+```typescript
+//bad
+interface DmEditorInterface {}
+
+//good
+interface DiagramEditorInterface {}
+```
+>3.4 Use camelCase for interface members
+```typescript
+//bad
+interface CarInterface {
+    last_service: '20.05.2020';
+    first_owner: 'John';
+}
+
+//good
+interface CarInterface {
+    lastService: '20.05.2020';
+    firstOwner: 'John';
+}
+```
 
 ## Strings
 
