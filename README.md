@@ -54,7 +54,68 @@ const baz = [...foo].map(bar);
 // good
 const baz = Array.from(foo, bar);
 ```
->2.3
+>2.3 Use line breaks after open and before close array brackets if an array has multiple lines
+```javascript
+// bad
+const arr = [
+  [0, 1], [2, 3], [4, 5],
+];
+
+const objectInArray = [{
+  id: 1,
+}, {
+  id: 2,
+}];
+
+const numberInArray = [
+  1, 2,
+];
+
+// good
+const arr = [[0, 1], [2, 3], [4, 5]];
+
+const objectInArray = [
+  {
+    id: 1,
+  },
+  {
+    id: 2,
+  },
+];
+
+const numberInArray = [
+  1,
+  2,
+];
+```
+>2.4 Use an array to hold the values you want to check for validity
+```javascript
+//bad
+const value1 = 'value1';
+const value2 = 'value2';
+
+if (value1 === 'someValue' || value2 === 'someValue') {
+    // perform some logic
+}
+
+//good
+const validValues = ['value1', 'value2'];
+
+if (validValues.includes('someValue')) {
+  // perform some logic
+}
+```
+>2.5 Use an array to hold multiple values after the condition expression completes
+```javascript
+//bad
+const value1 = 'foo' === 'baz' ? '1' : '2';
+const value2 = 'bar' === 'baz' ? '2' : '1';
+
+//good
+const [value1, value2] = 'foo' === 'baz' 
+        ? ['1', '2'] 
+        : ['2', '1']
+```
 
 
 ### Interfaces
