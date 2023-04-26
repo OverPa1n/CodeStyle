@@ -38,7 +38,24 @@ Which style for whitespaces we should follow?
 
 ### Arrays
 
-[Insert your information about Arrays]
+>2.1 Use the literal syntax for array creation.
+```javascript
+// bad
+const items = new Array();
+
+// good
+const items = [];
+```
+>2.2 Use Array.from instead of spread ... for mapping over iterables, because it avoids creating an intermediate array.
+```javascript
+// bad
+const baz = [...foo].map(bar);
+
+// good
+const baz = Array.from(foo, bar);
+```
+>2.3
+
 
 ### Interfaces
 
