@@ -6,7 +6,7 @@ This style guide outlines the coding conventions and guidelines that we follow f
 
 - [Code Conventions](#code-conventions)
     - [Whitespaces](#whitespaces)
-    - [Block](#blocks)
+    - [Blocks](#blocks)
     - [Arrays](#arrays)
     - [Interfaces](#interfaces)
     - [Strings](#strings)
