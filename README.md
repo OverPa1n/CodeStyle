@@ -276,6 +276,17 @@ class Component implements OnInit {
     return 'name';
   }
 }
+
+//good
+class Component {
+  name: string;
+
+  constructor(private dep1) {}
+
+  getName() {
+    return 'name';
+  }
+}
 ```
 >5.3 If a class member is not a parameter, initialize it where it's declared, which sometimes lets you drop the constructor entirely.
 ```typescript
