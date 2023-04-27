@@ -847,12 +847,12 @@ export default makeStyleGuide;
 ```
 >9.5 Use PascalCase when you export a constructor / class / singleton / function library / bare object
 ```javascript
-const AirbnbStyleGuide = {
+const Config = {
   es6: {
   },
 };
 
-export default AirbnbStyleGuide;
+export default Config;
 ```
 >9.6 Acronyms and initialisms should always be all uppercased, or all lowercased. Why? Names are for readability, not to appease a computer algorithm.
 ```javascript
@@ -907,6 +907,14 @@ import CheckBox from './CheckBox';
 ## Using observables
 >9.1 Use camelCase and $ sign for variables that hold observable
 ```typescript
+//bad
+const myObservable = someSource$.pipe(
+        map(data => data.someProperty),
+        filter(value => value > 0),
+        debounceTime(500)
+);
+
+//good
 const myObservable$ = someSource$.pipe(
   map(data => data.someProperty),
   filter(value => value > 0),
