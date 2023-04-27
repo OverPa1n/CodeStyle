@@ -9,7 +9,7 @@ This style guide outlines the coding conventions and guidelines that we follow f
     - [Arrays](#arrays)
     - [Interfaces](#interfaces)
     - [Strings](#strings)
-    - [Classes & Constructors (extend shared)](#classes--constructors-extend-shared)
+    - [Classes & Components](#classes--components)
     - [Comparison operators and equality](#comparison-operators-and-equality)
     - [Naming conventions](#naming-conventions)
     - [Using observables with new practise](#using-observables-with-new-practise)
@@ -118,7 +118,6 @@ const [value1, value2] = 'foo' === 'baz'
 ```
 
 ### Interfaces
-#### 3. Naming convention
 >3.1 Do not use "I" as a prefix for interface names.
 ```typescript
 //bad
@@ -159,14 +158,242 @@ interface CarInterface {
     firstOwner: 'John';
 }
 ```
+>3.5 Use separate interface instead of explicit describe entity when the interface can be used in several places
+```typescript
+//bad
+const entity: {property1: string; property2: number};
+//bad
+subscribe((entity: {property1: string; property2: number}) => entity);
+
+
+interface EntityInterface {
+    property1: string;
+    property2: number;
+}
+
+//good
+const entity: EntityInterface;
+
+//good
+subscribe((entity: EntityInterface) => entity);
+```
 
 ## Strings
+>4.1 When programmatically building up strings, use template strings instead of concatenation
+```javascript
+//bad
+const myUrl = endPoint + '/create';
 
-[Insert your information about Strings]
+//bad
+function sayHi(name) {
+  return ['How are you, ', name, '?'].join();
+}
 
-## Classes & Constructors (extend shared)
+//good
+const myUrl = `${endPoint}/create`;
 
-[Insert your information about Classes & Constructors (extend shared)]
+//good
+function sayHi(name) {
+  return `How are you ${name}?`;
+}
+```
+>4.2 Use single quotes ' for strings
+```javascript
+// bad
+const name = "Capt. Janeway";
+
+// bad - template literals should contain interpolation or newlines
+const name = `Capt. Janeway`;
+
+// good
+const name = 'Capt. Janeway';
+```
+
+## Classes & Components
+>5.1 It is unnecessary to provide an empty constructor or one that simply delegates into its parent class because ES2015 provides a default class constructor if one is not specified. However constructors with parameter properties, visibility modifiers or parameter decorators should not be omitted even if the body of the constructor is empty.
+```typescript
+//bad
+class Car {
+    constructor() {}
+  
+    getInfo() {
+        return this.info;
+    }
+}
+
+//good
+class Car {
+  getInfo() {
+    return this.info;
+  }
+}
+
+//good
+class DefaultConstructor {}
+
+//good
+class ParameterProperties {
+  constructor(private myService) {}
+}
+
+//good
+class ParameterDecorators {
+  constructor(@SideEffectDecorator myService) {}
+}
+
+//good
+class NoInstantiation {
+  private constructor() {}
+}
+```
+>5.2 Remove unused lifecycle hooks
+
+```typescript
+//bad
+class Component implements OnInit {
+  name: string;
+
+  constructor(private dep1) {}
+  //This method is unused and you should remove it
+  ngOnInit() {}
+  
+  getName() {
+      return 'name';
+  }
+}
+
+//good 
+class Component implements OnInit {
+  name: string;
+
+  constructor(private dep1) {}
+  
+  ngOnInit() {
+      this.initData();
+  }
+
+  getName() {
+    return 'name';
+  }
+}
+```
+>5.3 If a class member is not a parameter, initialize it where it's declared, which sometimes lets you drop the constructor entirely.
+```typescript
+//bad
+class Foo {
+  private readonly userList: string[];
+  
+  constructor() {
+    this.userList = [];
+  }
+}
+
+//good
+class Foo {
+  private readonly userList: string[] = [];
+}
+```
+>5.4 Don't use public access modifier for properties because, In TypeScript by default all the members (properties and methods) of a class are public
+```typescript
+//bad
+class Student {
+  //Name is public by deafult
+  public name: string;
+}
+
+//good
+class Student {
+  name: string;
+}
+```
+>5.5 Try to find some common methods in our codebase first, if there is one that you need, inject the service or extend a base class in your class
+
+```typescript
+//bad
+class SomeComponent {
+  // The method can exist in some service or base class
+  calculateDistance() {
+    return 44;
+  }
+}
+
+//good
+class CalculationService {
+  calculateDistance() {
+    return 44;
+  }
+}
+
+class SomeComponent {
+  constructor(private calculationService: CalculationService) {}
+  
+  getDistanceResult() {
+      this.calculationService.calculateDistance();
+  }
+}
+
+//or
+class BaseCalculate {
+  calculateDistance() {
+    return 44;
+  }
+}
+
+class SomeComponent extends BaseCalculate {
+  getDistanceResult() {
+    this.calculateDistance();
+  }
+}
+```
+>5.6 Consider creating base component if you have common functionality in several components
+```typescript
+//bad
+//Component1 template:
+//<button (click)='getInfo()'></button>
+
+class Component1 {
+  name: string;
+  type: string;
+
+  getInfo() {
+    return `${this.name} ${this.type}`
+  }
+}
+//Component2 template:
+//<button (click)='getInfo()'></button>
+class Component2 {
+  name: string;
+  type: string;
+
+  getInfo() {
+    return `${this.name} ${this.type}`
+  }
+}
+
+//good
+class BaseComponent {
+  protected abstract name: string;
+  protected abstract type: string;
+
+  getInfo() {
+    return `${this.name} ${this.type}`
+  }
+}
+
+//Component1 template:
+//<button (click)='getInfo()'></button>
+class Component1 extends BaseComponent {
+  readonly name = 'name1';
+  readonly type = 'type1';
+}
+
+//Component2 template:
+//<button (click)='getInfo()'></button>
+class Component2 extends BaseComponent {
+  readonly name = 'name2';
+  readonly type = 'type2';
+}
+```
 
 ## Comparison operators and equality
 
