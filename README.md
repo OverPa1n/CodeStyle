@@ -233,6 +233,7 @@ const x=y+5;
 // good
 const x = y + 5;
 ```
+#### :arrow_up: Back to top
 
 ### Blocks
 >2.1 Use braces with all multiline blocks. eslint: **nonblock-statement-body-position**
