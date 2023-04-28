@@ -2,8 +2,8 @@
 
 This style guide outlines the coding conventions and guidelines that we follow for Elements. These conventions help ensure that our code is consistent, readable, and maintainable.
 
-## Table of Contents
-
+<a id='table-of-contents'></a>
+## Table of contents
 - [Code Conventions](#code-conventions)
     - [Whitespaces](#whitespaces)
     - [Blocks](#blocks)
@@ -233,7 +233,7 @@ const x=y+5;
 // good
 const x = y + 5;
 ```
-#### [:arrow_up: Back to top](#code-conventions)
+#### [:arrow_up: Back to top](#table-of-contents)
 
 ### Blocks
 >2.1 Use braces with all multiline blocks. eslint: **nonblock-statement-body-position**
@@ -320,6 +320,7 @@ function dogs(x) {
   }
 }
 ```
+#### [:arrow_up: Back to top](#table-of-contents)
 
 ### Arrays
 
@@ -401,6 +402,7 @@ const [value1, value2] = 'foo' === 'baz'
         ? ['1', '2'] 
         : ['2', '1']
 ```
+#### [:arrow_up: Back to top](#table-of-contents)
 
 ### Interfaces
 >4.1 Do not use "I" as a prefix for interface names.
@@ -462,6 +464,7 @@ const entity2: EntityInterface;
 //good
 subscribe((entity: EntityInterface) => entity);
 ```
+#### [:arrow_up: Back to top](#table-of-contents)
 
 ## Strings
 >5.1 When programmatically building up strings, use template strings instead of concatenation
@@ -493,6 +496,7 @@ const name = `Capt. Janeway`;
 // good
 const name = 'Capt. Janeway';
 ```
+#### [:arrow_up: Back to top](#table-of-contents)
 
 ## Classes & Components
 >6.1 It is unnecessary to provide an empty constructor or one that simply delegates into its parent class because ES2015 provides a default class constructor if one is not specified. However constructors with parameter properties, visibility modifiers or parameter decorators should not be omitted even if the body of the constructor is empty.
@@ -690,6 +694,7 @@ class Component2 extends BaseComponent {
   readonly type = 'type2';
 }
 ```
+#### [:arrow_up: Back to top](#table-of-contents)
 
 ## Comparison operators and equality
 >7.1 Conditional statements such as the if statement evaluate their expression using coercion with the ToBoolean abstract method and always follow these simple rules:
@@ -770,6 +775,7 @@ if (collection.length) {
   // ...stuff...
 }
 ```
+#### [:arrow_up: Back to top](#table-of-contents)
 
 ## Naming conventions
 >9.1 Avoid shortcuts for variable, propertie or function names. Be descriptive with your naming
@@ -904,6 +910,7 @@ import CheckBox from './check_box';
 // good
 import CheckBox from './CheckBox';
 ```
+#### [:arrow_up: Back to top](#table-of-contents)
 
 ## Using observables
 >9.1 Use camelCase and $ sign for variables that hold observable
@@ -971,4 +978,4 @@ this.queryParamsSubscription = this.route.queryParams.subscribe(
     (params: any) => this.processMakeRootNode(params)
 );
 ```
-
+#### [:arrow_up: Back to top](#table-of-contents)
