@@ -699,12 +699,12 @@ class Component2 extends BaseComponent {
 ## Comparison operators and equality
 >7.1 Conditional statements such as the if statement evaluate their expression using coercion with the ToBoolean abstract method and always follow these simple rules:
 
-1) Objects evaluate to true. Empty array also evaluates to true because it's object under the hood
-2) Undefined evaluates to false
-3) Null evaluates to false
-4) Booleans evaluate to the value of the boolean
-5) Numbers evaluate to false if +0, -0, or NaN, otherwise true
-6) Strings evaluate to false if an empty string '', otherwise true
+1) ***Objects*** evaluate to ```true```. Empty ***array*** also evaluates to ```true``` because it's object under the hood
+2) ***Undefined*** evaluates to ```false```
+3) ***Null*** evaluates to ```false```
+4) ***Booleans*** evaluate to the value of the boolean
+5) ***Numbers*** evaluate to ```false``` if +0, -0, or NaN, otherwise ```true```
+6) ***Strings*** evaluate to ```false``` if an empty string '', otherwise ```true```
 
 >7.2 Ternaries should not be nested and generally be single line expressions
 ```javascript
