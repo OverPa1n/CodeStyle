@@ -694,6 +694,42 @@ class Component2 extends BaseComponent {
   readonly type = 'type2';
 }
 ```
+>6.7 Split component members with whitespace if they are different access modifier, decorators etc.
+```typescript
+//bad
+class Component {
+    @Input() input1;
+    @Input() input2;
+    @Output() output1;
+    @Output() output2;
+    private property1;
+    private property2;
+    public property3;
+    public property4;
+    //or
+    property5;
+    property6;
+}
+
+//good
+class Component {
+  @Input() input1;
+  @Input() input2;
+  
+  @Output() output1;
+  @Output() output2;
+  
+  private property1;
+  private property2;
+  
+  public property3;
+  public property4;
+  
+  //or
+  property5;
+  property6;
+}
+```
 #### [:arrow_up: Back to top](#table-of-contents)
 
 ## Comparison operators and equality
